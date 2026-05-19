@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="hat">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP JOB — Mache Mikwo-Sèvis ak Afilyasyon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .vip-border-gold {
+            border-color: #d4af37;
+        }
+        .vip-text-gold {
+            color: #d4af37;
+        }
+        .vip-bg-gold {
+            background-color: #d4af37;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col justify-between overflow-hidden bg-black text-white">
+
+    <header class="w-full h-16 border-b border-zinc-900 px-4 flex justify-between items-center bg-zinc-950 z-50 max-w-md mx-auto">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center">
+                <i class="fa-solid fa-crown text-black text-sm"></i>
+            </div>
+            <h1 class="text-base font-black tracking-wider vip-text-gold">VIP <span class="text-white">JOB</span></h1>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-lg flex items-center gap-2">
+                <i class="fa-solid fa-wallet vip-text-gold text-xs"></i>
+                <span id="global-balance" class="text-xs font-mono font-bold text-green-400">0.00 HTG</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-md w-full mx-auto relative bg-black border-x border-zinc-900 overflow-y-auto no-scrollbar pb-20">
+
+        <div id="page-home" class="p-4 space-y-6 block">
+            <div class="p-4 rounded-xl bg-gradient-to-r from-zinc-900 via-zinc-950 to-zinc-900 border border-zinc-800 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10">
+                    <i class="fa-solid fa-briefcase text-7xl text-amber-500"></i>
+                </div>
+                <span class="text-[10px] font-bold vip-text-gold uppercase tracking-widest bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Kominote</span>
+                <h2 class="text-base font-bold mt-2">Antre lajan nan fè travay dijital</h2>
+                <p class="text-xs text-zinc-400 mt-1">Achte sèvis pou grandi biznis ou, oswa vin yon revandè afilye pou touche komisyon sou chak aktivite.</p>
+            </div>
+
+            <div>
+                <h3 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">Kategori Sèvis Yo</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <div onclick="filterCategory('booster')" class="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg flex items-center gap-3 cursor-pointer hover:border-amber-500/40 transition-colors">
+                        <i class="fa-solid fa-rocket vip-text-gold text-sm"></i>
+                        <span class="text-xs font-semibold">Social Booster</span>
+                    </div>
+                    <div onclick="filterCategory('design')" class="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg flex items-center gap-3 cursor-pointer hover:border-amber-500/40 transition-colors">
+                        <i class="fa-solid fa-palette vip-text-gold text-sm"></i>
+                        <span class="text-xs font-semibold">Graphic Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Mikwo-Sèvis VIP yo</h3>
+                    <span class="text-[11px] vip-text-gold cursor-pointer">Tout</span>
+                </div>
+                
+                <div class="space-y-3" id="services-list">
+                    <div class="p-4 bg-zinc-950 border border-zinc-900 rounded-xl flex flex-col justify-between gap-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded font-bold uppercase border border-blue-500/20">Booster</span>
+                                <h4 class="text-sm font-bold mt-1.5">Pake 1,000 Followers TikTok (VIP Gid)</h4>
+                                <p class="text-xs text-zinc-500 mt-0.5">Ogmante odyans ou byen rapid ak moun reyèl.</p>
+                            </div>
+                            <span class="text-sm font-mono font-bold text-green-400">750 HTG</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-zinc-900 pt-2 mt-1">
+                            <span class="text-[11px] text-zinc-400"><i class="fa-solid fa-money-bill-trend-up mr-1 text-green-400"></i> Komisyon: <strong>150 HTG</strong></span>
+                            <button onclick="orderService('Pake 1,000 Followers TikTok', 750)" class="vip-bg-gold text-black font-bold text-xs px-3 py-1.5 rounded hover:bg-amber-600 transition-colors">Voyel ale</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-zinc-950 border border-zinc-900 rounded-xl flex flex-col justify-between gap-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[9px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded font-bold uppercase border border-purple-500/20">Design</span>
+                                <h4 class="text-sm font-bold mt-1.5">Kreyasyon Logo Luxury pou Biznis</h4>
+                                <p class="text-xs text-zinc-500 mt-0.5">Flyer oswa Logo pwofesyonèl nan nivo VIP.</p>
+                            </div>
+                            <span class="text-sm font-mono font-bold text-green-400">1,500 HTG</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-zinc-900 pt-2 mt-1">
+                            <span class="text-[11px] text-zinc-400"><i class="fa-solid fa-money-bill-trend-up mr-1 text-green-400"></i> Komisyon: <strong>300 HTG</strong></span>
+                            <button onclick="orderService('Kreyasyon Logo Luxury', 1500)" class="vip-bg-gold text-black font-bold text-xs px-3 py-1.5 rounded hover:bg-amber-600 transition-colors">Voyel ale</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-affiliate" class="p-4 space-y-6 hidden">
+            <h2 class="text-base font-bold vip-text-gold flex items-center gap-2"><i class="fa-solid fa-users"></i> Pwogram Afilyasyon Kominote a</h2>
+            
+            <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-800 space-y-3">
+                <p class="text-xs text-zinc-300 leading-relaxed">Kopye lyen afilyasyon ou anba a. Pou chak moun ki enskri epi ki achte oswa vann yon sèvis sou sit la, w ap touche yon komisyon <strong>20%</strong> dirèkteman nan balans ou.</p>
+                
+                <div class="flex gap-2 items-center bg-black border border-zinc-800 p-2 rounded-lg">
+                    <input type="text" id="affiliate-link" value="https://vipjob.vercel.app/invite?ref=user509" class="bg-transparent text-xs text-zinc-400 flex-1 outline-none read-only:select-all">
+                    <button onclick="copyAffiliateLink()" class="vip-bg-gold text-black px-3 py-1 text-xs font-bold rounded flex items-center gap-1">
+                        <i class="fa-solid fa-copy"></i> Kopye
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div class="p-3 bg-zinc-900/40 border border-zinc-900 rounded-xl text-center">
+                    <p class="text-zinc-500 text-[11px] uppercase font-bold">Moun ou envite</p>
+                    <p class="text-lg font-mono font-bold vip-text-gold mt-1">12</p>
+                </div>
+                <div class="p-3 bg-zinc-900/40 border border-zinc-900 rounded-xl text-center">
+                    <p class="text-zinc-500 text-[11px] uppercase font-bold">Lajan ou touche</p>
+                    <p class="text-lg font-mono font-bold text-green-400 mt-1">450 HTG</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-add" class="p-4 space-y-4 hidden">
+            <h2 class="text-base font-bold vip-text-gold flex items-center gap-2"><i class="fa-solid fa-square-plus"></i> Pibliye yon Sèvis oswa Misyon</h2>
+            <p class="text-xs text-zinc-400">Si ou bezwen yon moun fè yon travay pou ou, oswa si ou gen yon sèvis pou vann bay kominote a, ranpli fòm sa a.</p>
+            
+            <div class="space-y-3 bg-zinc-950 p-4 border border-zinc-900 rounded-xl">
+                <div>
+                    <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Tit Sèvis la</label>
+                    <input type="text" id="new-title" placeholder="Ex: Mwen kapab monte yon sit pou ou..." class="w-full bg-zinc-900 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Kategori</label>
+                    <select id="new-category" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                        <option value="booster">Social Booster</option>
+                        <option value="design">Graphic Design / Sèvis Dijital</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Pri Sèvis la (HTG)</label>
+                    <input type="number" id="new-price" placeholder="Ex: 1000" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-500 font-mono">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-1">Deskripsyon Kout</label>
+                    <input type="text" id="new-desc" placeholder="Bay detay rapid sou kisa w ap fè..." class="w-full bg-zinc-900 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <button onclick="publishCustomService()" class="w-full vip-bg-gold text-black font-bold py-2.5 rounded-lg text-xs mt-2 transition-colors">Mete li an liy</button>
+            </div>
+        </div>
+
+        <div id="page-profile" class="p-4 space-y-6 hidden">
+            <div class="flex flex-col items-center py-4 border-b border-zinc-900">
+                <div class="w-20 h-20 rounded-full bg-zinc-900 border border-amber-500/30 flex items-center justify-center mb-3">
+                    <i class="fa-solid fa-user text-3xl vip-text-gold"></i>
+                </div>
+                <h3 class="text-sm font-bold">Manm VIP Kominote</h3>
+                <p class="text-xs text-zinc-500 mt-0.5">ID Kont: #5092026</p>
+            </div>
+
+            <div class="p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl space-y-3">
+                <h4 class="text-xs font-bold uppercase text-zinc-400 tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-money-bill-transfer text-green-400"></i> Mande yon Retrè Lajan
+                </h4>
+                <p class="text-[11px] text-zinc-400">Ou ka retire kòb ou fè yo tou dwat pa MonCash oswa lòt bous lokal yo.</p>
+                
+                <div class="space-y-2">
+                    <input type="number" id="withdraw-amount" placeholder="Kantite lajan (HTG)" class="w-full bg-black border border-zinc-800 rounded p-2 text-xs font-mono text-white focus:outline-none">
+                    <input type="text" id="withdraw-phone" placeholder="Nimewo MonCash ou" class="w-full bg-black border border-zinc-800 rounded p-2 text-xs font-mono text-white focus:outline-none">
+                    <button onclick="processWithdrawal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition-colors">Konfime Retrè a</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="w-full h-16 border-t border-zinc-900 bg-zinc-950 flex justify-around items-center max-w-md mx-auto z-40 fixed bottom-0 left-0 right-0">
+        <button onclick="switchTab('home', this)" class="flex flex-col items-center gap-1 text-zinc-500 vip-text-gold">
+            <i class="fa-solid fa-briefcase text-lg"></i>
+            <span class="text-[10px] font-medium">Sèvis yo</span>
+        </button>
+        <button onclick="switchTab('affiliate', this)" class="flex flex-col items-center gap-1 text-zinc-500">
+            <i class="fa-solid fa-share-nodes text-lg"></i>
+            <span class="text-[10px] font-medium">Envite</span>
+        </button>
+        <button onclick="switchTab('add', this)" class="flex flex-col items-center justify-center bg-amber-500 text-black rounded-lg w-10 h-7">
+            <i class="fa-solid fa-plus text-xs font-bold"></i>
+        </button>
+        <button onclick="switchTab('profile', this)" class="flex flex-col items-center gap-1 text-zinc-500">
+            <i class="fa-solid fa-wallet text-lg"></i>
+            <span class="text-[10px] font-medium">Bous mwen</span>
+        </button>
+    </nav>
+
+    <script>
+        let balance = 0;
+
+        function updateBalanceDisplay() {
+            document.getElementById('global-balance').innerText = `${balance.toLocaleString()} HTG`;
+        }
+
+        // Navigasyon ant paj yo san chaje paj la
+        function switchTab(pageId, btn) {
+            document.getElementById('page-home').classList.add('hidden');
+            document.getElementById('page-affiliate').classList.add('hidden');
+            document.getElementById('page-add').classList.add('hidden');
+            document.getElementById('page-profile').classList.add('hidden');
+
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+
+            // Mizajou koulè ikon ki aktif la
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('vip-text-gold'));
+            if(btn) btn.classList.add('vip-text-gold');
+        }
+
+        // Kopye lyen afilyasyon
+        function copyAffiliateLink() {
+            const linkInput = document.getElementById('affiliate-link');
+            linkInput.select();
+            document.execCommand('copy');
+            alert('Lyen afilyasyon ou kopye avèk siksè! Pataje l pou w ka fè kòb.');
+        }
+
+        // Simulation acha yon sèvis ak distribisyon komisyon
+        function orderService(serviceName, price) {
+            alert(`Lòd pou "${serviceName}" la voye ale avèk siksè!\nN ap kontakte w pou livrezon an.`);
+            
+            // Simulation: Lè yon travay fèt, balans ou ap moute ak komisyon an automatically
+            let commission = Math.round(price * 0.20);
+            balance += commission;
+            updateBalanceDisplay();
+        }
+
+        // Pibliye yon nouvo sèvis an tan reyèl nan lis la
+        function publishCustomService() {
+            const title = document.getElementById('new-title').value;
+            const category = document.getElementById('new-category').value;
+            const price = document.getElementById('new-price').value;
+            const desc = document.getElementById('new-desc').value;
+
+            if(!title || !price) {
+                alert('Silvouplè ranpli tit la ak pri a.');
+                return;
+            }
+
+            const list = document.getElementById('services-list');
+            const catBadgeColor = category === 'booster' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 'bg-purple-500/10 text-purple-400 border-purple-500/20';
+            const catName = category === 'booster' ? 'Booster' : 'Design';
+            const calculatedCommission = Math.round(price * 0.20);
+
+            const newServiceHTML = `
+                <div class="p-4 bg-zinc-950 border border-zinc-900 rounded-xl flex flex-col justify-between gap-3">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[9px] ${catBadgeColor} px-2 py-0.5 rounded font-bold uppercase border">${catName}</span>
+                            <h4 class="text-sm font-bold mt-1.5">${title}</h4>
+                            <p class="text-xs text-zinc-500 mt-0.5">${desc || 'Pa gen deskripsyon.'}</p>
+                        </div>
+                        <span class="text-sm font-mono font-bold text-green-400">${parseInt(price).toLocaleString()} HTG</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-zinc-900 pt-2 mt-1">
+                        <span class="text-[11px] text-zinc-400"><i class="fa-solid fa-money-bill-trend-up mr-1 text-green-400"></i> Komisyon: <strong>${calculatedCommission} HTG</strong></span>
+                        <button onclick="orderService('${title}', ${price})" class="vip-bg-gold text-black font-bold text-xs px-3 py-1.5 rounded hover:bg-amber-600 transition-colors">Voyel ale</button>
+                    </div>
+                </div>
+            `;
+
+            list.insertAdjacentHTML('afterbegin', newServiceHTML);
+            
+            // Reyajiste fòm nan epi tounen sou paj akeyi a
+            document.getElementById('new-title').value = "";
+            document.getElementById('new-price').value = "";
+            document.getElementById('new-desc').value = "";
+            
+            switchTab('home');
+            alert('Sèvis ou a mete an liy pou tout moun ka wè l epi travay avè l!');
+        }
+
+        // Pwosesis retrè lajan pa MonCash
+        function processWithdrawal() {
+            const amount = document.getElementById('withdraw-amount').value;
+            const phone = document.getElementById('withdraw-phone').value;
+
+            if(!amount || !phone) {
+                alert('Silvouplè ranpli tout bwat yo pou w ka fè retrè a.');
+                return;
+            }
+
+            if(parseInt(amount) > balance) {
+                alert('Lajan sa a depase sa k nan bous ou a.');
+                return;
+            }
+
+            balance -= parseInt(amount);
+            updateBalanceDisplay();
+            
+            document.getElementById('withdraw-amount').value = "";
+            document.getElementById('withdraw-phone').value = "";
+            
+            alert(`Mande retrè pou ${amount} HTG voye ale sou kont MonCash ${phone} la.\nL ap apwouve nan mwens ke 24 trè.`);
+        }
+    </script>
+</body>
+</html>
